@@ -7,6 +7,12 @@ body {
 
 h1, h2, h3, h4, h5 {
 	font-family: 'Spectral', serif;
+	color: #fff;
+}
+
+p, ul, li, blockquote, p a, .entry-meta, .entry-title a{
+	color: #fff;
+	font-size: 1.4rem;
 }
 
 body {
@@ -19,8 +25,20 @@ body {
 }
 
 
-.navbar-dark .navbar-brand a {
+#main-nav a.navbar-brand  {
 	font-size: 2rem;
 	text-decoration: none;
 	border-radius: 0;	
+	font-family: 'Spectral', serif;
+	width: 350px;
+	display: block;
+    height: 100px;
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: center;
+}
+
+#main-menu .nav-link {
+	color: #fff;
+	font-size: 1.3rem;
 }
