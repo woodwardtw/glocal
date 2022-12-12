@@ -47,6 +47,11 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 	}
 } // End of if function_exists( 'understrap_scripts' ).
 
+function wpdocs_theme_add_editor_styles() {
+    add_editor_style( get_template_directory_uri() . 'custom-editor-style.css' );
+}
+add_action( 'admin_init', 'wpdocs_theme_add_editor_styles' );
+
 add_action( 'wp_enqueue_scripts', 'understrap_scripts' );
 
 if ( ! function_exists( 'understrap_offcanvas_admin_bar_inline_styles' ) ) {

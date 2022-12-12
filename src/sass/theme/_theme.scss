@@ -16,7 +16,7 @@ p, ul, li, blockquote, p a, .entry-meta, .entry-title a{
 }
 
 body {
-	margin: 50px 10vw; 
+	margin: 50px 12vw; 
 }
 
 .btn-secondary {
@@ -38,7 +38,25 @@ body {
     text-align: center;
 }
 
+.navbar-expand-md .offcanvas .offcanvas-body {
+	top: 15px;
+    position: absolute;
+    right: 0;
+}
+
 #main-menu .nav-link {
 	color: #fff;
 	font-size: 1.3rem;
+}
+
+
+.entry-content a:hover {
+	color: $blue;
+}
+
+
+.wp-block-button__link {
+	background-color: $red;
+	color: #fff;
+	border-radius: 0;
 }
