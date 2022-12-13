@@ -35,3 +35,9 @@
 	font-size: $h1-font-size;
 	font-weight: $headings-font-weight;
 }
+
+.wp-block-button__link {
+	background-color: $red;
+	color: #fff;
+	border-radius: 0;
+}

@@ -6238,4 +6238,10 @@ body.understrap-no-sidebar .wp-block-cover.alignwide {
   font-weight: 500;
 }
 
+.wp-block-button__link {
+  background-color: #85200c;
+  color: #fff;
+  border-radius: 0;
+}
+
 /*# sourceMappingURL=custom-editor-style.css.map */
