@@ -43,3 +43,28 @@ if ( class_exists( 'Jetpack' ) ) {
 foreach ( $understrap_includes as $file ) {
 	require_once get_theme_file_path( $understrap_inc_dir . $file );
 }
+
+
+function glocal_home_buttons(){
+		$html = '';
+		if( have_rows('buttons') ):
+	
+		    // Loop through rows.
+		    while( have_rows('buttons') ) : the_row();
+	
+		        // Load sub field value.
+		        $button_text = get_sub_field('button_text');
+		        $link = get_sub_field('link');
+		        $img = get_sub_field('image');
+		        // Do something...
+		    // End loop.
+		        $html .= "<div class='col-md-3'><a href='{$link}'>{$button_text}</a></div>";
+		    endwhile;
+		    return $html;
+			// No value.
+			else :
+			    // Do something...
+			endif;
+
+	
+}
