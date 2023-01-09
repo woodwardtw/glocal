@@ -16502,6 +16502,7 @@ body {
   word-wrap: break-word;
   white-space: normal;
   text-align: center;
+  line-height: 2.2rem;
 }
 
 .navbar-expand-md .offcanvas .offcanvas-body {

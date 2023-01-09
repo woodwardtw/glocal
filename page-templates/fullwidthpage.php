@@ -43,10 +43,7 @@ if ( is_page_template( 'page-templates/no-title.php' ) ) {
 							comments_template();
 						}
 					}
-					?>
-					<?php 
-					echo "FOO";
-					echo glocal_home_buttons();?>
+					?>				
 				</main>
 
 			</div><!-- #primary -->
