@@ -13,7 +13,9 @@ function onMapClick(e) {
 		.setLatLng(e.latlng)
 		.setContent(`Your content is here.`)//You clicked the map at ${e.latlng.toString()}
 		.openOn(map);
+		makeDraggable(popup);//from https://stackoverflow.com/questions/58059686/draggable-leaflet-popup
 	updateGravityForm(e.latlng)		
+	console.log(e.lat)
 }
 
 map.on('click', onMapClick);
@@ -24,3 +26,16 @@ function updateGravityForm(latLong){
 	latField.value = latLong;
 	longField.value = latLong;
 }
+
+function makeDraggable(popup){
+      var pos = map.latLngToLayerPoint(popup.getLatLng());
+      L.DomUtil.setPosition(popup._wrapper.parentNode, pos);
+      var draggable = new L.Draggable(popup._container, popup._wrapper);
+      draggable.enable();
+      
+      draggable.on('dragend', function() {
+        var pos = map.layerPointToLatLng(this._newPos);
+        popup.setLatLng(pos);
+        updateGravityForm(pos)		
+      });
+    }
