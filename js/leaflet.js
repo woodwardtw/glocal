@@ -11,20 +11,18 @@ const popup = L.popup();
 function onMapClick(e) {
 	popup
 		.setLatLng(e.latlng)
-		.setContent(`Your content is here.`)//You clicked the map at ${e.latlng.toString()}
+		.setContent(`Click and drag to move me or double click on a new area.`)//You clicked the map at ${e.latlng.toString()}
 		.openOn(map);
 		makeDraggable(popup);//from https://stackoverflow.com/questions/58059686/draggable-leaflet-popup
-	updateGravityForm(e.latlng)		
-	console.log(e.lat)
+	updateGravityForm(e.latlng);		
 }
 
 map.on('click', onMapClick);
 
 function updateGravityForm(latLong){
-	const latField = document.querySelector('#input_1_7');
-	const longField = document.querySelector('#input_1_8');
-	latField.value = latLong;
-	longField.value = latLong;
+	const cleanLatLong = `${latLong.lat}, ${latLong.lng}`;
+	const llField = document.querySelector('#input_1_7');
+	llField.value = cleanLatLong;
 }
 
 function makeDraggable(popup){
