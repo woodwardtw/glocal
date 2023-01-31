@@ -16526,4 +16526,9 @@ body {
   border-radius: 0;
 }
 
+#theMap {
+  height: 600px;
+  width: 100%;
+}
+
 /*# sourceMappingURL=theme.css.map */
