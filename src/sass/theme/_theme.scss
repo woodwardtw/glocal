@@ -64,3 +64,13 @@ body {
 	height: 600px;
 	width: 100%;
 }
+
+
+/*popup map details*/
+#theMap .leaflet-popup-content-wrapper, #theMap .leaflet-popup-tip {
+	background-color: $red;
+	border-radius: 0;
+}
+#theMap .popup-name{
+	color: #fff;
+}
