@@ -16531,14 +16531,31 @@ body {
   width: 100%;
 }
 
+#displayMap {
+  width: 100%;
+  height: 800px;
+}
+
 /*popup map details*/
-#theMap .leaflet-popup-content-wrapper, #theMap .leaflet-popup-tip {
+#displayMap .leaflet-popup-content-wrapper,
+#displayMap .leaflet-popup-tip,
+#theMap .leaflet-popup-content-wrapper,
+#theMap .leaflet-popup-tip {
   background-color: #85200c;
   border-radius: 0;
+  color: #fff;
 }
 
 #theMap .popup-name {
   color: #fff;
+}
+
+.popup-img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+  display: block;
 }
 
 /*# sourceMappingURL=theme.css.map */

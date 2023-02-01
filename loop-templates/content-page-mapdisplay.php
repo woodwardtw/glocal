@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 	?>
 
 	<div class="entry-content">
-		<div id="theMap"></div>
+		<div id="displayMap"></div>
 		<?php
 		the_content();
 		understrap_link_pages();

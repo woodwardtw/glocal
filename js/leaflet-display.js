@@ -1,5 +1,5 @@
 console.log('leaflet display');
-const map = L.map('theMap').setView([32.825512, -30.535592], 2.6);
+const map = L.map('displayMap').setView([32.825512, -30.535592], 2.6);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -12,7 +12,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 const wpJson = document.querySelector('link[rel="https://api.w.org/"]').href + 'wp/v2/posts?per_page=99&_embed';
-console.log(wpJson);
+//console.log(wpJson);
 
 fetch(wpJson).then(response => response.json()).then(data => markerMaker(data));
 
@@ -21,8 +21,8 @@ fetch(wpJson).then(response => response.json()).then(data => markerMaker(data));
 function markerMaker(data){
     var markers = L.markerClusterGroup({
       spiderfyOnMaxZoom: true,
-      showCoverageOnHover: false,
-      zoomToBoundsOnClick: false,
+      showCoverageOnHover: true,
+      zoomToBoundsOnClick: true,
       maxClusterRadius: 40,
     });
     data.forEach((item, index) => {
@@ -35,17 +35,25 @@ function markerMaker(data){
 		      const marker = L.marker([lat, long]).addTo(map);
 		      let imgHtml = '';
 		      let detailHtml = '';
-		      console.log(item._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url);
 		      if(item._embedded["wp:featuredmedia"]){
 		        const imgUrl = item._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url;
-		        imgHtml = `<img src="${imgUrl}" alt="Picture of ${title}." width="150px" height="auto">`;
+		        imgHtml = `<img src="${imgUrl}" class="popup-img" alt="Picture of ${title}." width="250px" height="180px">`;
 		      }
 		      if(item.content.rendered){
 		        const content = item.content.rendered;
 		        detailHtml = `<div class="details">${content}</div>`;
 		      }
 		      if (lat != '' && long != ''){
-		        marker.bindPopup(`<h2 class="popup-name">${title}</h2> ${imgHtml}${detailHtml}`);
+		        marker.bindPopup(`<h2 class="popup-name">${title}</h2> ${imgHtml}${detailHtml}`
+		        	, {
+						  maxWidth: 300,
+						  minWidth: 300,
+						  autoPanPaddingTopLeft: 10,
+						  autoPan: true,
+						  maxHeight: 300,
+						  draggable: true,
+						}
+		        	);
 		      }
 		      markers.addLayer(marker);
 
