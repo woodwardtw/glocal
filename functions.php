@@ -44,3 +44,23 @@ foreach ( $understrap_includes as $file ) {
 	require_once get_theme_file_path( $understrap_inc_dir . $file );
 }
 
+
+//add custom field to wp json for lat long from https://stackoverflow.com/questions/43986513/how-do-you-add-custom-fields-defined-in-posts-to-the-rest-api-responses-in-wordp
+add_action( 'rest_api_init', 'add_custom_fields' );
+function add_custom_fields() {
+register_rest_field(
+'post', 
+'lat_long', //New Field Name in JSON RESPONSEs
+array(
+    'get_callback'    => 'get_custom_fields', // custom function name 
+    'update_callback' => null,
+    'schema'          => null,
+     )
+);
+}
+
+function get_custom_fields( $object, $field_name, $request ) {
+	//your code goes here
+	$customfieldvalue = get_post_custom_values('latlong',$object['id']);
+	return $customfieldvalue;
+}
