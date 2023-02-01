@@ -53,7 +53,10 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 			wp_enqueue_script( 'leaflet-custom',  get_template_directory_uri() . '/js/leaflet.js', array(), $js_version, true );
 		}
 		if (is_page_template('page-templates/map-display.php')){
+			wp_enqueue_script('leaflet-cluster', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js', '', '1', true);
 			wp_enqueue_script( 'leaflet-custom-display',  get_template_directory_uri() . '/js/leaflet-display.js', array(), $js_version, true );
+			wp_enqueue_style('cluster-default-css', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css');
+    		wp_enqueue_style('cluster-marker-css', 'https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css');
 		}
 
 	}
