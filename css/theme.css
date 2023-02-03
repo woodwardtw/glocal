@@ -16550,12 +16550,20 @@ body {
   color: #fff;
 }
 
+.map-detail {
+  margin-top: 10px;
+}
+
 .popup-img {
   -o-object-fit: cover;
   object-fit: cover;
   width: 100%;
   height: 200px;
   display: block;
+}
+
+#displayMap p, #displayMap {
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=theme.css.map */

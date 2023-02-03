@@ -41,10 +41,24 @@ function markerMaker(data){
 		      }
 		      if(item.content.rendered){
 		        const content = item.content.rendered;
-		        detailHtml = `<div class="details">${content}</div>`;
+		        const author = item._embedded.author[0].name;
+		        const category = item._embedded["wp:term"][0][0].name;
+		        let theme = '';
+		        if(item._embedded["wp:term"][2][0] != undefined){
+		        	theme = item._embedded["wp:term"][2][0].name; //item._embedded["wp:term"][1][0].name;
+		        }
+		        detailHtml = `<div class="map-details">
+		        				<div class='map-author'>${author}</div>
+		        				<div class='map-theme'>theme: ${theme}</div>
+		        				<div class='map-cat'>category: ${category}</div>
+		        				<div class='map-caption'>
+		        					 ${content}
+		        				</div>
+		        			</div>`;
 		      }
 		      if (lat != '' && long != ''){
-		        marker.bindPopup(`<h2 class="popup-name">${title}</h2> ${imgHtml}${detailHtml}`
+		      	//<h2 class="popup-name">${title}</h2> 
+		        marker.bindPopup(`${imgHtml}${detailHtml}`
 		        	, {
 						  maxWidth: 300,
 						  minWidth: 300,
