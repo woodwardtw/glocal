@@ -16554,6 +16554,11 @@ body {
   margin-top: 10px;
 }
 
+.map-detail a {
+  color: #fff;
+  font-size: 1rem;
+}
+
 .popup-img {
   -o-object-fit: cover;
   object-fit: cover;
